@@ -7,7 +7,6 @@ public class Theme {
 	
 	
 	public Theme(int id, String name, String description) {
-		//super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
@@ -32,5 +31,8 @@ public class Theme {
 		this.description = description;
 	}
 	
+	public String toString() {
+        return "Theme{id=" + id + ", name='" + name + "', description='" + description + "'}";
+    }
 	
 }

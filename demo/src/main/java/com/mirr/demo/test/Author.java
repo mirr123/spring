@@ -39,4 +39,8 @@ public class Author {
 		this.dateOfBirth = dateOfBirth;
 	}	
 	
+	public String toString() {
+        return "Theme{id=" + id + ", name='" + firstName + "', last name='" + lastName + "'}";
+    }
+	
 }

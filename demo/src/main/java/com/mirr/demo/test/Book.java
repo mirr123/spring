@@ -8,11 +8,10 @@ public class Book {
 	private String publisher;
 	private int publisherYear;
 	private String description;
-	private String themes;
+	private Theme themes;
 	
 	public Book(int id, String title, Author author, String publisher, int publisherYear, String description,
-			String themes) {
-		super();
+			Theme themes) {
 		this.id = id;
 		this.title = title;
 		this.author = author;
@@ -58,10 +57,10 @@ public class Book {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getThemes() {
+	public Theme getThemes() {
 		return themes;
 	}
-	public void setThemes(String themes) {
+	public void setThemes(Theme themes) {
 		this.themes = themes;
 	}
 	
