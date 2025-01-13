@@ -3,29 +3,30 @@ package com.mirr.demo.test;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.mirr.demo.repository.ThemeRepository;
 
 @Service
 public class ThemesServices {
-
-	private List<Theme> themes= new ArrayList<Theme>();
+	
+	@Autowired ThemeRepository repository;
+	//private List<Theme> themes= new ArrayList<Theme>();
 	
 	public List<Theme> addTheme(Theme theme) {
-		themes.add(theme);
-		return themes;
+		repository.save(theme);
+		return repository.findAll();
 	}
 	
 	public List<Theme> removeTheme(int id) {
-		themes.removeIf(theme -> theme.getId() == id );
-		return themes;
+		repository.deleteById(id);
+		return repository.findAll();
 	}	
 	
 	public List<Theme> getValues() {
-        System.out.println("Getting all themes:");
-        for (Theme theme : themes) {
-            System.out.println(theme);
-        }
-        return themes;
+        return repository.findAll();
+
     }
 	
 	public List<Theme> updateTheme(int id, String new_name, String new_description){
@@ -37,7 +38,7 @@ public class ThemesServices {
 					theme.setDescription(new_description);
 			}
 		}
-		return themes;
+		return null;
 	}
 
 	@Override 

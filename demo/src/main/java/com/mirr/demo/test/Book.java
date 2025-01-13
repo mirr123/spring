@@ -1,13 +1,37 @@
 package com.mirr.demo.test;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="books")
 public class Book {
 	
+	@Id
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Column(name= "book_id",nullable=false)
 	private int id;
+	
+	@Column(name="title", nullable= false)
 	private String title;
+	
+	@Column(name="author", nullable= false)
 	private Author author;
+	
+	@Column(name="publisher", nullable= true)
 	private String publisher;
+	
+	@Column(name="publisherYear", nullable= true)
 	private int publisherYear;
+	
+	@Column (name="description", nullable=true)
 	private String description;
+	
+	@Column (name="themes", nullable=true)
 	private Theme themes;
 	
 	public Book(int id, String title, Author author, String publisher, int publisherYear, String description,
